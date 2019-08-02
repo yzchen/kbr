@@ -1,0 +1,97 @@
+Hilbert Axioms 1. proof : ⊢ p -> (q -> p)
+
+(Axiom)[p,q] ⊢ [p]
+(IR)[p] ⊢ [(q -> p)]
+(IR)[] ⊢ [(p -> (q -> p))]
+
+
+Hilbert Axioms 2. proof : ⊢ (p -> (q -> r)) -> ((p -> q) -> (p -> r))
+
+(Axiom)[r,(p -> q),p] ⊢ [r]
+
+(Axiom)[q] ⊢ [q]
+(WR)[q] ⊢ [q,r]
+(WL)[q,p] ⊢ [q,r]
+
+(Axiom)[p] ⊢ [p]
+(WR)[p] ⊢ [p,r]
+(WR)[p] ⊢ [p,q,r]
+(IL)[(p -> q),p] ⊢ [q,r]
+(IL)[(q -> r),(p -> q),p] ⊢ [r]
+
+(Axiom)[p] ⊢ [p]
+(WR)[p] ⊢ [p,r]
+(WL)[(p -> q),p] ⊢ [p,r]
+(IL)[(p -> (q -> r)),(p -> q),p] ⊢ [r]
+(IR)[(p -> (q -> r)),(p -> q)] ⊢ [(p -> r)]
+(IR)[(p -> (q -> r))] ⊢ [((p -> q) -> (p -> r))]
+(IR)[] ⊢ [((p -> (q -> r)) -> ((p -> q) -> (p -> r)))]
+
+
+Hilbert Axioms 3. proof : ⊢ (¬q -> ¬p) -> (p -> q)
+
+(Axiom)[p] ⊢ [p]
+(WR)[p] ⊢ [q,p]
+(NL)[¬p,p] ⊢ [q]
+
+(Axiom)[p,q] ⊢ [q]
+(NR)[p] ⊢ [¬q,q]
+(IL)[(¬q -> ¬p),p] ⊢ [q]
+(IR)[(¬q -> ¬p)] ⊢ [(p -> q)]
+(IR)[] ⊢ [((¬q -> ¬p) -> (p -> q))]
+
+
+Hilbert Axioms 4. proof : ⊢ p -> (¬p -> q)
+
+(Axiom)[p] ⊢ [p]
+(WR)[p] ⊢ [q,p]
+(NL)[p,¬p] ⊢ [q]
+(IR)[p] ⊢ [(¬p -> q)]
+(IR)[] ⊢ [(p -> (¬p -> q))]
+
+
+Hilbert Axioms 5. proof : ⊢ (¬p -> p) -> p
+
+(Axiom)[p] ⊢ [p]
+
+(Axiom)[p] ⊢ [p]
+(NR)[] ⊢ [¬p,p]
+(IL)[(¬p -> p)] ⊢ [p]
+(IR)[] ⊢ [((¬p -> p) -> p)]
+
+
+Modus Ponens 6. proof : ⊢ ((p -> q) ∧ p) -> q
+
+(Axiom)[q,p] ⊢ [q]
+
+(Axiom)[p] ⊢ [p]
+(WR)[p] ⊢ [p,q]
+(IL)[(p -> q),p] ⊢ [q]
+(AL)[((p -> q) ∧ p)] ⊢ [q]
+(IR)[] ⊢ [(((p -> q) ∧ p) -> q)]
+
+
+7. proof : ⊢ p -> q
+False
+
+8. proof : p ⊢ p -> q
+
+(Axiom)[q,p] ⊢ [q]
+(IR)[q] ⊢ [(p -> q)]
+
+
+9. proof : (p & q) -> r ⊢ p -> (q -> r)
+
+(Axiom)[r,p,q] ⊢ [r]
+
+(Axiom)[q] ⊢ [q]
+(WR)[q] ⊢ [q,r]
+(WL)[p,q] ⊢ [q,r]
+
+(Axiom)[p] ⊢ [p]
+(WR)[p] ⊢ [p,r]
+(WL)[p,q] ⊢ [p,r]
+(AR)[p,q] ⊢ [(p ∧ q),r]
+(IL)[((p ∧ q) -> r),p,q] ⊢ [r]
+(IR)[((p ∧ q) -> r),p] ⊢ [(q -> r)]
+(IR)[((p ∧ q) -> r)] ⊢ [(p -> (q -> r))]
